@@ -2,285 +2,64 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
+    <!-- هذا السطر هو المسؤول عن جعل حجم الموقع مناسباً للهاتف -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GT6 FREE FIRE - EXECUTIVE VIP PANEL</title>
+    <title>GT6 SYSTEM</title>
     <style>
-        :root {
-            --bg-main: #0a0b12;
-            --bg-card: #10111c;
-            --bg-control: #181b2c;
-            --neon-cyan: #00b4ff;
-            --neon-purple: #6e3cff;
-            --neon-green: #00ff8c;
-            --text-main: #f5f7ff;
-            --text-muted: #8c91aa;
-            --border-color: #1c1e2e;
-        }
-
         body {
-            background-color: var(--bg-main);
-            color: var(--text-main);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 15px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            box-sizing: border-box;
-        }
-
-        .panel-container {
-            width: 100%;
-            max-width: 550px;
-            background-color: var(--bg-card);
-            border: 2px solid var(--border-color);
-            border-radius: 16px;
-            padding: 25px;
-            box-shadow: 0 0 25px rgba(110, 60, 255, 0.15);
-        }
-
-        .header {
-            text-align: center;
-            margin-bottom: 25px;
-        }
-
-        .header h1 {
-            color: var(--neon-cyan);
-            font-size: 30px;
-            margin: 0;
-            font-weight: 800;
-            letter-spacing: 2px;
-        }
-
-        .header p {
-            color: var(--text-muted);
-            font-size: 11px;
-            margin: 5px 0 0 0;
-            font-weight: 600;
-        }
-
-        .status-badge {
-            display: inline-block;
-            background-color: var(--bg-control);
-            padding: 6px 14px;
-            border-radius: 8px;
-            font-size: 11px;
-            font-weight: bold;
-            color: var(--neon-green);
-            margin-top: 10px;
-            border: 1px solid #252844;
-        }
-
-        .input-group {
-            margin-bottom: 20px;
-        }
-
-        .input-group label {
-            display: block;
-            color: var(--text-main);
-            font-size: 13px;
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
-
-        .input-group input {
-            width: 100%;
-            background-color: var(--bg-control);
-            border: 1px solid #252844;
-            padding: 14px;
-            border-radius: 10px;
-            color: var(--text-main);
-            font-size: 15px;
-            box-sizing: border-box;
-            outline: none;
-            transition: 0.3s;
-            text-align: center;
-            font-family: monospace;
-        }
-
-        .input-group input:focus {
-            border-color: var(--neon-cyan);
-            box-shadow: 0 0 10px rgba(0, 180, 255, 0.3);
-        }
-
-        /* كروت الإعدادات والتفعيل المشابهة للتصميم الأصلي */
-        .control-card {
-            background-color: var(--bg-control);
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            padding: 15px;
-            margin-bottom: 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .control-info h4 {
-            margin: 0;
-            font-size: 14px;
-            color: var(--text-main);
-        }
-
-        .control-info p {
-            margin: 4px 0 0 0;
-            font-size: 11px;
-            color: var(--text-muted);
-        }
-
-        /* مفاتيح التفعيل الـ Toggles */
-        .switch {
-            position: relative;
-            display: inline-block;
-            width: 46px;
-            height: 24px;
-        }
-
-        .switch input { 
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
-
-        .slider-toggle {
-            position: absolute;
-            cursor: pointer;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-color: #242744;
-            transition: .3s;
-            border-radius: 24px;
-        }
-
-        .slider-toggle:before {
-            position: absolute;
-            content: "";
-            height: 18px;
-            width: 18px;
-            left: 3px;
-            bottom: 3px;
-            background-color: var(--text-muted);
-            transition: .3s;
-            border-radius: 50%;
-        }
-
-        input:checked + .slider-toggle {
-            background-color: var(--neon-purple);
-        }
-
-        input:checked + .slider-toggle:before {
-            transform: translateX(22px);
-            background-color: var(--text-main);
-        }
-
-        /* أشرطة التحكم والـ Sliders */
-        .slider-container {
-            margin-bottom: 20px;
-        }
-
-        .slider-header {
-            display: flex;
-            justify-content: space-between;
-            font-size: 12px;
-            margin-bottom: 6px;
-            font-weight: 600;
-        }
-
-        .range-slider {
-            width: 100%;
-            -webkit-appearance: none;
-            background: #242744;
-            height: 6px;
-            border-radius: 5px;
-            outline: none;
-        }
-
-        .range-slider::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background: var(--neon-cyan);
-            cursor: pointer;
-            box-shadow: 0 0 8px var(--neon-cyan);
-        }
-
-        .btn-primary {
-            width: 100%;
-            background: linear-gradient(135deg, var(--neon-purple), var(--neon-cyan));
-            color: var(--text-main);
-            border: none;
-            padding: 15px;
-            border-radius: 10px;
-            font-size: 14px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
-            letter-spacing: 1px;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(110, 60, 255, 0.4);
-        }
-
-        .output-box {
-            margin-top: 25px;
-            background-color: var(--bg-control);
-            border-radius: 10px;
+            font-family: Arial, sans-serif;
             padding: 20px;
-            border: 1px solid #252844;
-            display: none;
+            background-color: #121212;
+            color: white;
+        }
+        .panel-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 500px;
+            margin: auto;
+        }
+        input[type="number"] {
+            padding: 20px;
+            font-size: 20px;
+            border-radius: 10px;
+            border: none;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .btn-primary {
+            padding: 20px;
+            font-size: 22px;
+            font-weight: bold;
+            cursor: pointer;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            width: 100%;
+        }
+        .output-box {
+            margin-top: 20px;
+            padding: 20px;
+            border: 2px solid #2575fc;
+            font-size: 18px;
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            display: none; /* يظهر فقط عند النتيجة */
         }
     </style>
 </head>
 <body>
 
-<div class="panel-container">
-    <div class="header">
-        <h1>GT6 SYSTEM</h1>
-        <p>FREE FIRE EXECUTIVE CONSOLE</p>
-        <div class="status-badge">STATUS • ONLINE</div>
+    <div class="panel-container">
+        <h1 style="text-align: center;">GT6 SYSTEM</h1>
+        <input type="number" id="playerId" placeholder="أدخل ID اللاعب">
+        <button class="btn-primary" id="injectBtn">[+] INJECT GT6 MATRIX</button>
+        <div id="resultBox" class="output-box"></div>
     </div>
 
-    <div class="control-card">
-        <div class="control-info">
-            <h4>[>] AIM ASSIST</h4>
-            <p>Advanced Target Assistance MATRIX</p>
-        </div>
-        <label class="switch">
-            <input type="checkbox" id="aimAssistCheck" checked>
-            <span class="slider-toggle"></span>
-        </label>
-    </div>
-
-    <div class="slider-container">
-        <div class="slider-header">
-            <span style="color: var(--neon-purple);">SENSITIVITY</span>
-            <span id="sensVal" style="color: var(--neon-cyan);">85%</span>
-        </div>
-        <input type="range" min="1" max="100" value="85" class="range-slider" id="sensRange" oninput="document.getElementById('sensVal').innerText = this.value + '%'">
-    </div>
-
-    <div class="slider-container">
-        <div class="slider-header">
-            <span style="color: var(--neon-purple);">FOV RANGE</span>
-            <span id="fovVal" style="color: var(--neon-cyan);">120°</span>
-        </div>
-        <input type="range" min="10" max="360" value="120" class="range-slider" id="fovRange" oninput="document.getElementById('fovVal').innerText = this.value + '°'">
-    </div>
-
-    <div class="input-group">
-        <label>[//] أدخل معرف اللاعب المستهدف (PLAYER ID):</label>
-        <input type="number" id="playerId" placeholder="مثال: 54932108...">
-    </div>
-
-    <button class="btn-primary" onclick="executeAiMatrix()">[🤖] INJECT GT6 MATRIX</button>
-
-    <div class="output-box" id="resultBox"></div>
-</div>
-
-<script src="script.js"></script>
+    <!-- هذا السطر يربط ملف الجافا سكريبت -->
+    <script type="module" src="script.js"></script>
 
 </body>
 </html>
