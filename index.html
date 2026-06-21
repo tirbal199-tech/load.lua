@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GT6 FREE FIRE - EXECUTIVE VIP PANEL</title>
+    <style>
+        :root {
+            --bg-main: #0a0b12;
+            --bg-card: #10111c;
+            --bg-control: #181b2c;
+            --neon-cyan: #00b4ff;
+            --neon-purple: #6e3cff;
+            --neon-green: #00ff8c;
+            --text-main: #f5f7ff;
+            --text-muted: #8c91aa;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .panel-container {
+            width: 100%;
+            max-width: 500px;
+            background-color: var(--bg-card);
+            border: 2px solid #1c1e2e;
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(110, 60, 255, 0.2);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .header h1 {
+            color: var(--neon-cyan);
+            font-size: 28px;
+            margin: 0;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        .header p {
+            color: var(--text-muted);
+            font-size: 11px;
+            margin: 5px 0 0 0;
+            font-weight: 600;
+        }
+
+        .status-badge {
+            display: inline-block;
+            background-color: var(--bg-control);
+            padding: 5px 12px;
+            border-radius: 8px;
+            font-size: 11px;
+            font-weight: bold;
+            color: var(--neon-green);
+            margin-top: 10px;
+            border: 1px solid #25282c;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            color: var(--text-main);
+            font-size: 13px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .input-group input {
+            width: 100%;
+            background-color: var(--bg-control);
+            border: 1px solid #252844;
+            padding: 12px;
+            border-radius: 10px;
+            color: var(--text-main);
+            font-size: 14px;
+            box-sizing: border-box;
+            outline: none;
+            transition: 0.3s;
+            text-align: center;
+        }
+
+        .input-group input:focus {
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 10px rgba(0, 180, 255, 0.3);
+        }
+
+        .btn-primary {
+            width: 100%;
+            background: linear-gradient(135deg, var(--neon-purple), var(--neon-cyan));
+            color: var(--text-main);
+            border: none;
+            padding: 14px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(110, 60, 255, 0.4);
+        }
+
+        .output-box {
+            margin-top: 25px;
+            background-color: var(--bg-control);
+            border-radius: 10px;
+            padding: 15px;
+            border: 1px solid #252844;
+            display: none;
+        }
+
+        .output-box h3 {
+            margin: 0 0 10px 0;
+            font-size: 14px;
+            color: var(--neon-cyan);
+        }
+
+        .output-box p {
+            margin: 5px 0;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .output-box span {
+            color: var(--text-main);
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="panel-container">
+    <div class="header">
+        <h1>GT6 FREE FIRE</h1>
+        <p>COGNITIVE INTERACTION SYSTEM</p>
+        <div class="status-badge">[!] SYSTEM READY</div>
+    </div>
+
+    <div class="input-group">
+        <label>[>] إدخال معرف اللاعب (PLAYER ID):</label>
+        <input type="number" id="playerId" placeholder="أدخل الـ ID هنا...">
+    </div>
+
+    <button class="btn-primary" onclick="processPlayer()">[🤖] بدء فحص ومعالجة البيانات</button>
+
+    <div class="output-box" id="resultBox">
+        <h3>[//] نتائج فحص الأفاتار والمصفوفة:</h3>
+        <p>الحالة: <span style="color: var(--neon-green);">متصل (ONLINE)</span></p>
+        <p>المعرف المكتشف: <span id="detectedId">00000000</span></p>
+        <p>معدل التنبؤ الرياضي: <span>98.4% (EXCELLENT)</span></p>
+        <p style="margin-top: 10px; color: var(--neon-purple);">[+] تم تجهيز حزمة التعديل المتوافقة بنجاح.</p>
+    </div>
+</div>
+
+<script>
+    function processPlayer() {
+        var id = document.getElementById('playerId').value;
+        if(id === "") {
+            alert("الرجاء إدخال ID صحيح أولاً!");
+            return;
+        }
+        document.getElementById('detectedId').innerText = id;
+        document.getElementById('resultBox').style.display = 'block';
+    }
+</script>
+
+</body>
+</html>
+
